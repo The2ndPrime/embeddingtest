@@ -10,6 +10,15 @@ const app = express();
 const PORT = process.env.PORT || 8080;
 const HOST = process.env.HOST || '0.0.0.0';
 
+app.get('/frame-breaker', (req, res) => {
+	fs.readFile(__dirname + '/frame-breaker.html')
+		.then(contents => {
+			res.setHeader('Content-Type', 'text/html');
+			res.writeHead(200);
+			res.end(contents);
+		});
+});
+
 app.get('/x-frame-options/allowed', (req, res) => {
 	fs.readFile(__dirname + '/content.html')
 		.then(contents => {
