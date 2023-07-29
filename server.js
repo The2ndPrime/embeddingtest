@@ -1,7 +1,6 @@
 'use strict';
 
 const express = require('express');
-const http = require('http');
 const fs = require('fs').promises;
 
 // App
@@ -10,15 +9,6 @@ const app = express();
 // Constants
 const PORT = process.env.PORT || 8080;
 const HOST = process.env.HOST || '0.0.0.0';
-
-app.get('/iframes', (req, res) => {
-	fs.readFile(__dirname + '/iframes.html')
-		.then(contents => {
-			res.setHeader('Content-Type', 'text/html');
-			res.writeHead(200);
-			res.end(contents);
-		});
-});
 
 app.get('/x-frame-options/allowed', (req, res) => {
 	fs.readFile(__dirname + '/content.html')
