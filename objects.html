@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+    box-sizing: border-box;
+  }
+  
+  .row {
+    display: flex;
+  }
+  
+  /* Create two equal columns that sits next to each other */
+  .column {
+    padding: 20px;
+  }
+</style>
+</head>
+<body>
+    <div class="row">
+        <div class="column">
+            <p>
+                <h1><code>X-Frame-Options</code></h1>
+            </p>
+            <p>
+                <h2><code>No X-Frame-Options</code></h2>
+                <object data="http://localhost:8080/x-frame-options/allowed"></object>
+            </p>
+            <p>
+                <h2><code>X-Frame-Options 'SAMEORIGIN'</code></h2>
+                <object data="http://localhost:8080/x-frame-options/sameorigin"></object>
+            </p>
+            <p>
+                <h2><code>X-Frame-Options 'DENY'</code></h2>
+                <object data="http://localhost:8080/x-frame-options/deny"></object>
+            </p>
+        </div>
+        <div class="column">
+            <p>
+                <h1><code>CSP: frame-ancestors</code></h1>
+            </p>
+            <p>
+                <h2><code>No frame-ancestors</code></h2>
+                <object data="http://localhost:8080/frame-ancestors/allowed"></object>
+            </p>
+            <p>
+                <h2><code>frame-ancestors 'self'</code></h2>
+                <object data="http://localhost:8080/frame-ancestors/self"></object>
+            </p>
+            <p>
+                <h2><code>frame-ancestors 'none'</code></h2>
+                <object data="http://localhost:8080/frame-ancestors/none"></object>
+            </p>
+        </div>
+        <div class="column">
+            <p>
+                <h1><code>Bypassing</code></h1>
+            </p>
+            <p>
+                <h2><code>X-Frame-Options 'DENY'</code></h2>
+                <object data="http://localhost:3000?url=http://www.loremip.de/x-frame-options/deny"></object>
+            </p>
+            <p>
+                <h2><code>frame-ancestors 'none'</code></h2>
+                <object data="http://localhost:3000?url=http://www.loremip.de/frame-ancestors/none"></object>
+            </p>
+        </div>
+    </div>
+</body>
+</html>

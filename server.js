@@ -20,6 +20,15 @@ app.get('/iframes', (req, res) => {
 		});
 });
 
+app.get('/objects', (req, res) => {
+	fs.readFile(__dirname + '/objects.html')
+		.then(contents => {
+			res.setHeader('Content-Type', 'text/html');
+			res.writeHead(200);
+			res.end(contents);
+		});
+});
+
 app.get('/x-frame-options/allowed', (req, res) => {
 	fs.readFile(__dirname + '/content.html')
 		.then(contents => {
