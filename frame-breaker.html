@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style id="antiClickjack">
+    body{display:none !important;}
+</style>
+<script type="text/javascript">
+    if (self === top) {
+        var antiClickjack = document.getElementById("antiClickjack");
+        antiClickjack.parentNode.removeChild(antiClickjack);
+    } else {
+        top.location = self.location;
+    }
+</script>
+</head>
+<body>
+
+<h1>This is the embedded page protected by a frame-breaker</h1>
+
+</body>
+</html>
